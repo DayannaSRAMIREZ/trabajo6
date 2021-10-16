@@ -4,6 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
+    public static void bubbleSort(List<Ordenable> miLista) {
+        for (int i = 0; i < miLista.size(); i++) {
+            for (int j = 0; j < miLista.size() - 1; j++) {
+                if (miLista.get(j).esMayor(miLista.get(j + 1))) {
+                    Ordenable temporal = miLista.get(j);
+                    miLista.set(j, miLista.get(j + 1));
+                    miLista.set(j + 1, temporal);
+                }
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
 
         Persona persona1 = new Persona("Pablo", 1, "m");
@@ -23,8 +36,8 @@ public class Main {
         personasList.add(persona6);
         personasList.add(persona7);
         personasList.add(persona8);
-
-        //persona1.ordenar(personasList).forEach(persona -> System.out.println(persona));
+        bubbleSort(personasList);
+        System.out.println(personasList);
 
         Par pareja1 = new Par(3, 4);
         Par pareja2 = new Par(1, 3);
@@ -35,6 +48,7 @@ public class Main {
         Par pareja7 = new Par(7, 4);
         Par pareja8 = new Par(1, 4);
 
+
         ParSuma pareja21 = new ParSuma(3, 4);
         ParSuma pareja22 = new ParSuma(1, 3);
         ParSuma pareja23 = new ParSuma(3, 5);
@@ -44,7 +58,7 @@ public class Main {
         ParSuma pareja27 = new ParSuma(7, 4);
         ParSuma pareja28 = new ParSuma(0, 3);
 
-        List<sorting.Ordenable> ordenableList = new ArrayList<>();
+        List<Ordenable> ordenableList = new ArrayList<>();
         ordenableList.add(pareja21);
         ordenableList.add(pareja22);
         ordenableList.add(pareja23);
@@ -53,7 +67,9 @@ public class Main {
         ordenableList.add(pareja26);
         ordenableList.add(pareja27);
         ordenableList.add(pareja28);
-        pareja21.ordenar(ordenableList);
-        pareja21.ordenar(ordenableList).forEach(elemento -> System.out.println(elemento));
+        bubbleSort(ordenableList);
+       // System.out.println(ordenableList);
+        ;
+
     }
 }
