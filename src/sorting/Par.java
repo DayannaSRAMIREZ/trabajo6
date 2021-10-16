@@ -11,13 +11,10 @@ public class Par implements Ordenable {
     @Override
     public Boolean esMayor(Object objeto) {
         Par par1copia = (Par) objeto;
-
-        if (this.numeroA > par1copia.numeroA) return true;
         if (this.numeroA == par1copia.numeroA) {
-            if (this.numeroB > par1copia.numeroB) return true;
-            else return false;
+            return (this.numeroB > par1copia.numeroB)  ;
         }
-        return false;
+        return  (this.numeroA > par1copia.numeroA);
     }
 
     @Override
